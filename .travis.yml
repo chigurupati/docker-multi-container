@@ -9,16 +9,16 @@ script:
   - docker run achigurupati/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t achigurupati/multi-client ./client
-  - docker build -t achigurupati/multi-nginx ./nginx
-  - docker build -t achigurupati/multi-server ./server
-  - docker build -t achigurupati/multi-worker ./worker
+  - docker build -t amarcs06/multi-client ./client
+  - docker build -t amarcs06/multi-nginx ./nginx
+  - docker build -t amarcs06/multi-server ./server
+  - docker build -t amarcs06/multi-worker ./worker
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "#DOCKER_ID" --password-stdin
   
   #Take those images and push them to docker hub
-  - docker push achigurupati/multi-client
-  - docker push achigurupati/multi-nginx
-  - docker push achigurupati/multi-server
-  - docker push achigurupati/multi-worker
+  - docker push amarcs06/multi-client
+  - docker push amarcs06/multi-nginx
+  - docker push amarcs06/multi-server
+  - docker push amarcs06/multi-worker
 
